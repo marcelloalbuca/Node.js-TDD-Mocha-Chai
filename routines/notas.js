@@ -12,4 +12,9 @@ function calcularMedia(n1, n2, sch){
     else if (n1 === null && n2 === null && sch !== null){
         media = sch/2;
     }
+
+    return media;
 }
+
+module.exports.calcularMedia = calcularMedia;
+
