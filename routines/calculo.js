@@ -1,22 +1,17 @@
-function calcularPorcentagem(d1, d2, porc){
-    var media;
-    if(n1 <= || n2 !== null){
-        media = (n1+n2)/2;
+function calcularPorcentagem(d1){
+    var porcentagem;
+    if(d1 <= 30){
+        porcentagem = 0.05;
     }
-    else if (n1 !== null && sch !== null){
-        media = (n1+sch)/2;
+    else if (d1 >= 31 || d1 <= 60){
+        porcentagem = 0.10;
     }
-    else if (n2 !== null && sch !== null){
-        media = (n2+sch)/2;
+    if (d1 > 60 ){
+        porcentagem = 0.15;
     }
-    else if (n1 === null && n2 === null && sch !== null){
-        media = sch/2;
-    }
-    if (media >=3 && media <7  && n1 !== null && n2 !== null && sch === null && fn !== null){
-        media = (media+fn)/2
-    }
-    return media;
+
+    return porcentagem;
 }
 
-module.exports.calcularMedia = calcularMedia;
+module.exports.calcularPorcentagem = calcularPorcentagem;
 

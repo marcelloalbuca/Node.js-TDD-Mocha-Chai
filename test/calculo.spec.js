@@ -1,39 +1,40 @@
 var chai = require("chai");
 var expect = chai.expect;
-var Media = require("../routines/notas");
+var Porcentagem = require("../routines/calculo");
 
-describe("Calcular Média", ()=> {
+describe("Porcentagem dias de atraso", ()=> {
     describe("Apenas notas de unidade", () => {
-        it("1 Unid = 7; 2 Unid = 9; Média = 8;", () => {
-            expect(Media.calcularMedia(7,9)).to.equal(8);
+
+        it(" 1 atraso = 10 dias; ", () => {
+            expect(Porcentagem.calcularPorcentagem(10)).to.equal(0.05);
 
         })
-        it("1 Unid = 3; 2 Unid = 5; Média = 4;", () => {
-            expect(Media.calcularMedia(3,5)).to.equal(4);
+
+        it(" 2 atraso = 15 dias ; ", () => {
+            expect(Porcentagem.calcularPorcentagem(15)).to.equal(0.05);
+
         })
 
-    })
-    describe("Com segunda chamada", () => {
-        it("1 Unid = 7; 2 Unid = null; seg = 9; Média = 8;", () => {
-            expect(Media.calcularMedia(7, null, 9)).to.equal(8);
+        it(" 3 atraso = 31 dias; ", () => {
+            expect(Porcentagem.calcularPorcentagem(31)).to.equal(0.10);
+
         })
-        it("1 Unid = null; 2 Unid = 7; Média = 9;", () => {
-            expect(Media.calcularMedia(null, 7, 9)).to.equal(8);
+
+        it(" 4 atraso = 60 dias; ", () => {
+            expect(Porcentagem.calcularPorcentagem(60)).to.equal(0.10);
+
         })
-        it("1 Unid = null; 2 Unid = null; Média = 8;", () => {
-            expect(Media.calcularMedia(null, null, 8)).to.equal(4);
+
+        it(" 5 atraso = 61 dias; ", () => {
+            expect(Porcentagem.calcularPorcentagem(61)).to.equal(0.15);
+
         })
-    })
-    describe("Com final", () => {
-        it("1  media = 7; n1 = null ; n2 = null; fn = 9; media = 8;", () => {
-            expect(Media.calcularMedia(7, null, 9)).to.equal(8);
+
+        it(" 6 atraso = 76 dias; ", () => {
+            expect(Porcentagem.calcularPorcentagem(76)).to.equal(0.15);
+
         })
-        it("1  media = 4; n1 = 6 ; n2 = null; fn = 8; media = 6.5", () => {
-            expect(Media.calcularMedia(4, 6, null, 8)).to.equal(6.5);
-        })
-        it("1  media = 6; n1 = null ;  n2 = null ; fn = 8; media = 7", () => {
-            expect(Media.calcularMedia(6, null, 8)).to.equal(7);
-        })
+
     })
 
 })
